@@ -145,20 +145,18 @@ export default function Contact() {
   const t = useTranslation();
 
   return (
-    <section id="contact" className="relative border-t border-stone-200 dark:border-stone-700">
+    <section id="contact" className="relative min-h-dvh border-t border-stone-200 dark:border-stone-700">
       <PulseBeams beams={contactBeams} gradientColors={gradientColors}>
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-          className="mx-auto px-6 py-28 text-center"
+          className="mx-auto px-6 text-center"
         >
-          <p className="section-label mb-8 inline-block rounded-full border border-[#C7AC60] px-3.5 py-1.5 font-mono font-semibold text-[12px] uppercase tracking-[0.18em] text-stone-400">
+          <p className="inline-block rounded-full border border-[#C7AC60] px-3.5 py-1.5 font-mono font-semibold text-[12px] uppercase tracking-[0.18em] text-stone-400">
             {t("contactLabel")}
           </p>
-
-
         </motion.div>
       </PulseBeams>
     </section>
