@@ -30,7 +30,7 @@ export default function Contact() {
           rel="noopener noreferrer"
           className="inline-flex h-12 items-center gap-2 rounded-xl bg-[#C7AC60] px-8 text-sm font-medium text-[#fafaf9] transition-all duration-300 hover:opacity-85 hover:-translate-y-0.5"
         >
-          +966 57 097 7204
+          {t("contactLabel")}
         </a>
       </motion.div>
     </section>
