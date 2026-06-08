@@ -3,7 +3,6 @@
 import { motion } from "motion/react";
 import { useTranslation } from "./LanguageProvider";
 import { PulseBeams } from "@/components/ui/pulse-beams";
-import { IdentificationCard } from "@phosphor-icons/react";
 
 const contactBeams = [
   {
@@ -145,29 +144,6 @@ const gradientColors = {
 export default function Contact() {
   const t = useTranslation();
 
-  function downloadVCard() {
-    const vcard = [
-      "BEGIN:VCARD",
-      "VERSION:3.0",
-      "FN;CHARSET=UTF-8:Daniel Abu Rayan",
-      "N;CHARSET=UTF-8:Abu Rayan;Daniel;دانيال;ابو ريان;",
-      "TEL;TYPE=CELL:+966570977204",
-      "TITLE;CHARSET=UTF-8:Freelance",
-      "NOTE;CHARSET=UTF-8:عمل حر",
-      "END:VCARD",
-    ].join("\n");
-
-    const blob = new Blob([vcard], { type: "text/vcard;charset=utf-8" });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement("a");
-    a.href = url;
-    a.download = "Daniel-Abu-Rayan.vcf";
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
-    URL.revokeObjectURL(url);
-  }
-
   return (
     <section id="contact" className="relative border-t border-stone-200 dark:border-stone-700">
       <PulseBeams beams={contactBeams} gradientColors={gradientColors}>
@@ -182,15 +158,12 @@ export default function Contact() {
             {t("contactLabel")}
           </p>
 
-          <div className="flex justify-center">
-            <button
-              onClick={downloadVCard}
-              className="inline-flex h-14 cursor-pointer items-center gap-3 rounded-xl border border-[#C7AC60]/30 bg-[#C7AC60]/10 px-8 text-sm font-semibold tracking-wider text-stone-700 uppercase transition-all duration-300 hover:bg-[#C7AC60] hover:text-[#fafaf9] hover:-translate-y-0.5 active:scale-[0.97] dark:text-stone-300"
-            >
-              <IdentificationCard size={22} weight="bold" />
-              <span>{t("contactDownload")}</span>
-            </button>
-          </div>
+          <p
+            className="text-[clamp(2rem,4vw,3rem)] font-semibold leading-none tracking-tight text-stone-800 dark:text-stone-100"
+            style={{ fontFamily: "var(--font-arabic)" }}
+          >
+            اتصل
+          </p>
         </motion.div>
       </PulseBeams>
     </section>
