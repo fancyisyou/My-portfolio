@@ -15,7 +15,7 @@ export default function Contact() {
         transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
         className="mx-auto px-6 text-center"
       >
-        <p className="inline-block rounded-full border border-[#C7AC60] px-3.5 py-1.5 font-mono font-semibold text-[12px] uppercase tracking-[0.18em] text-stone-400">
+        <p className="inline-block rounded-full border border-[#C7AC60] px-6 py-3 font-mono font-semibold text-[36px] uppercase tracking-[0.18em] text-stone-400">
           {t("contactLabel")}
         </p>
       </motion.div>
