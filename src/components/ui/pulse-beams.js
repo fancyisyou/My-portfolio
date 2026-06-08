@@ -24,28 +24,14 @@ function SVGs({ beams, width, height, baseColor, accentColor, gradientColors }) 
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
-      {beams.map((beam, index) => (
-        <g key={index}>
-          <path d={beam.path} stroke={baseColor} strokeWidth="1" />
-          <path
-            d={beam.path}
-            stroke={`url(#grad${index})`}
-            strokeWidth="2"
-            strokeLinecap="round"
-          />
-          {beam.connectionPoints?.map((point, pi) => (
-            <circle
-              key={pi}
-              cx={point.cx}
-              cy={point.cy}
-              r={point.r}
-              fill={baseColor}
-              stroke={accentColor}
-            />
-          ))}
-        </g>
-      ))}
       <defs>
+        <filter id="proton-glow" x="-50%" y="-50%" width="200%" height="200%">
+          <feGaussianBlur stdDeviation="3" result="blur" />
+          <feMerge>
+            <feMergeNode in="blur" />
+            <feMergeNode in="SourceGraphic" />
+          </feMerge>
+        </filter>
         {beams.map((beam, index) => (
           <motion.linearGradient
             key={index}
@@ -59,6 +45,46 @@ function SVGs({ beams, width, height, baseColor, accentColor, gradientColors }) 
           </motion.linearGradient>
         ))}
       </defs>
+
+      {beams.map((beam, index) => (
+        <g key={index}>
+          <path d={beam.path} stroke={baseColor} strokeWidth="1" />
+          <path
+            d={beam.path}
+            stroke={`url(#grad${index})`}
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+          {beam.connectionPoints?.map((point, pi) => (
+            <circle
+              key={pi}
+              cx={point.cx}
+              cy={point.cy}
+              r={point.r}
+              fill={baseColor}
+              stroke={accentColor}
+            />
+          ))}
+          {beam.proton && (
+            <motion.circle
+              r={beam.proton.r || 4}
+              fill={beam.proton.color || "#fff"}
+              filter="url(#proton-glow)"
+              animate={{
+                cx: beam.proton.cx,
+                cy: beam.proton.cy,
+              }}
+              transition={{
+                duration: beam.proton.duration || 4,
+                repeat: Infinity,
+                ease: "linear",
+                repeatDelay: beam.proton.repeatDelay || 0,
+              }}
+            />
+          )}
+        </g>
+      ))}
     </svg>
   );
 }

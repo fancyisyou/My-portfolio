@@ -7,7 +7,7 @@ import { IdentificationCard } from "@phosphor-icons/react";
 
 const contactBeams = [
   {
-    path: "M120 380 Q280 180 440 340 Q600 500 740 220",
+    path: "M 50 50 L 220 50 L 220 140 L 429 217",
     gradientConfig: {
       initial: { x1: "0%", y1: "0%", x2: "100%", y2: "100%" },
       animate: {
@@ -17,19 +17,29 @@ const contactBeams = [
         y2: ["100%", "0%", "100%"],
       },
       transition: {
-        duration: 4,
+        duration: 3,
         repeat: Infinity,
         repeatType: "mirror",
         ease: "linear",
       },
     },
     connectionPoints: [
-      { cx: 120, cy: 380, r: 4 },
-      { cx: 740, cy: 220, r: 4 },
+      { cx: 50, cy: 50, r: 5 },
+      { cx: 220, cy: 50, r: 4 },
+      { cx: 220, cy: 140, r: 4 },
+      { cx: 429, cy: 217, r: 6 },
     ],
+    proton: {
+      cx: [50, 220, 220, 429],
+      cy: [50, 50, 140, 217],
+      color: "#C7AC60",
+      duration: 3,
+      r: 5,
+      repeatDelay: 1,
+    },
   },
   {
-    path: "M200 120 Q400 300 600 160 Q750 60 858 300",
+    path: "M 808 50 L 620 50 L 620 140 L 429 217",
     gradientConfig: {
       initial: { x1: "0%", y1: "80%", x2: "100%", y2: "20%" },
       animate: {
@@ -39,19 +49,29 @@ const contactBeams = [
         y2: ["20%", "80%", "20%"],
       },
       transition: {
-        duration: 5,
+        duration: 3.5,
         repeat: Infinity,
         repeatType: "mirror",
         ease: "linear",
       },
     },
     connectionPoints: [
-      { cx: 200, cy: 120, r: 4 },
-      { cx: 858, cy: 300, r: 4 },
+      { cx: 808, cy: 50, r: 5 },
+      { cx: 620, cy: 50, r: 4 },
+      { cx: 620, cy: 140, r: 4 },
+      { cx: 429, cy: 217, r: 6 },
     ],
+    proton: {
+      cx: [808, 620, 620, 429],
+      cy: [50, 50, 140, 217],
+      color: "#6344F5",
+      duration: 3.5,
+      r: 5,
+      repeatDelay: 1.5,
+    },
   },
   {
-    path: "M50 200 Q250 380 450 180 Q650 50 800 350",
+    path: "M 50 384 L 220 384 L 220 290 L 429 217",
     gradientConfig: {
       initial: { x1: "40%", y1: "100%", x2: "60%", y2: "0%" },
       animate: {
@@ -61,16 +81,58 @@ const contactBeams = [
         y2: ["0%", "100%", "0%"],
       },
       transition: {
-        duration: 6,
+        duration: 4,
         repeat: Infinity,
         repeatType: "mirror",
         ease: "linear",
       },
     },
     connectionPoints: [
-      { cx: 50, cy: 200, r: 4 },
-      { cx: 800, cy: 350, r: 4 },
+      { cx: 50, cy: 384, r: 5 },
+      { cx: 220, cy: 384, r: 4 },
+      { cx: 220, cy: 290, r: 4 },
+      { cx: 429, cy: 217, r: 6 },
     ],
+    proton: {
+      cx: [50, 220, 220, 429],
+      cy: [384, 384, 290, 217],
+      color: "#AE48FF",
+      duration: 4,
+      r: 5,
+      repeatDelay: 2,
+    },
+  },
+  {
+    path: "M 808 384 L 620 384 L 620 290 L 429 217",
+    gradientConfig: {
+      initial: { x1: "60%", y1: "160%", x2: "40%", y2: "-60%" },
+      animate: {
+        x1: ["60%", "40%", "60%"],
+        y1: ["160%", "-60%", "160%"],
+        x2: ["40%", "60%", "40%"],
+        y2: ["-60%", "160%", "-60%"],
+      },
+      transition: {
+        duration: 4.5,
+        repeat: Infinity,
+        repeatType: "mirror",
+        ease: "linear",
+      },
+    },
+    connectionPoints: [
+      { cx: 808, cy: 384, r: 5 },
+      { cx: 620, cy: 384, r: 4 },
+      { cx: 620, cy: 290, r: 4 },
+      { cx: 429, cy: 217, r: 6 },
+    ],
+    proton: {
+      cx: [808, 620, 620, 429],
+      cy: [384, 384, 290, 217],
+      color: "#C7AC60",
+      duration: 4.5,
+      r: 5,
+      repeatDelay: 2.5,
+    },
   },
 ];
 
