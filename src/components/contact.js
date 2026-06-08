@@ -1,7 +1,6 @@
 "use client";
 
 import { motion } from "motion/react";
-import { useTranslation } from "./LanguageProvider";
 import { PulseBeams } from "@/components/ui/pulse-beams";
 
 const contactBeams = [
@@ -142,8 +141,6 @@ const gradientColors = {
 };
 
 export default function Contact() {
-  const t = useTranslation();
-
   return (
     <section id="contact" className="relative min-h-dvh border-t border-stone-200 dark:border-stone-700">
       <PulseBeams beams={contactBeams} gradientColors={gradientColors}>
@@ -154,8 +151,11 @@ export default function Contact() {
           transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
           className="mx-auto px-6 text-center"
         >
-          <p className="inline-block rounded-full border border-[#C7AC60] px-3.5 py-1.5 font-mono font-semibold text-[12px] uppercase tracking-[0.18em] text-stone-400">
-            {t("contactLabel")}
+          <p
+            className="text-[clamp(2rem,4vw,3rem)] font-semibold leading-none tracking-tight text-stone-800 dark:text-stone-100"
+            style={{ fontFamily: "var(--font-arabic)" }}
+          >
+            اتصل
           </p>
         </motion.div>
       </PulseBeams>
