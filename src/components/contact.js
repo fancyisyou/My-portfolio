@@ -15,7 +15,7 @@ export default function Contact() {
         transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
         className="mx-auto max-w-[600px] px-6 py-28 text-center"
       >
-        <p className="section-label mb-3 font-mono text-[11px] uppercase tracking-[0.18em] text-stone-400">
+        <p className="section-label mb-3 inline-block rounded-full border border-[#C7AC60] px-3.5 py-1.5 font-mono font-semibold text-[12px] uppercase tracking-[0.18em] text-stone-400">
           {t("contactLabel")}
         </p>
         <h2 className="text-[clamp(1.5rem,3.5vw,2.25rem)] font-semibold leading-tight tracking-tight">

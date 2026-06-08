@@ -35,7 +35,7 @@ body {
 }
 
 body[lang="ar"] {
-  font-family: "Noto Sans Arabic", var(--font-sans);
+  font-family: var(--font-arabic);
   line-height: 1.8;
 }
 
@@ -65,8 +65,23 @@ section[id] {
   font-style: normal;
 }
 
+@property --angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+@keyframes spin-slow {
+  to { --angle: 360deg; }
+}
+
 [dir="rtl"] .section-label,
 [dir="rtl"] .filter-label {
   letter-spacing: 0;
   text-transform: none;
+  font-family: var(--font-arabic);
+}
+
+[dir="rtl"] .font-mono {
+  font-family: var(--font-arabic);
 }

@@ -76,8 +76,7 @@ export default function CanvasParticles() {
   return (
     <canvas
       ref={ref}
-      id="about-canvas"
-      className="pointer-events-auto absolute inset-0 h-full w-full"
+      className="pointer-events-none fixed inset-0 h-full w-full"
     />
   );
 }

@@ -48,39 +48,39 @@ export default function Nav() {
     <>
       <nav className="fixed inset-x-0 top-0 z-[100] flex h-16 items-center justify-center">
         <div
-          className={`mx-auto flex items-center justify-center w-full max-w-[1100px] p-[10px] transition-all duration-700 ease-out ${
+          className={`flex items-center justify-center p-[10px] gap-x-6 ${
             scrolled
-              ? "gap-x-6 rounded-full border border-stone-200/30 bg-stone-50/65 shadow-[0_4px_24px_rgba(199,172,96,0.2)] backdrop-blur-xl saturate-180 dark:border-stone-700/30 dark:bg-stone-950/65"
-              : ""
+              ? "w-fit rounded-full border border-stone-200/30 bg-stone-50/65 shadow-[0_4px_24px_rgba(199,172,96,0.2)] dark:border-stone-800/50 dark:bg-stone-950/80"
+              : "w-full max-w-[1100px]"
           }`}
         >
           <a href="#hero" className="flex shrink-0 items-center">
             <img
               src="/logo.png"
               alt="Daniel"
-              className={`h-8 w-auto transition-all duration-700 ease-out ${
-                scrolled ? "h-6" : ""
-               }`}
+               className={`h-8 w-auto transition-all ease-out ${
+                 scrolled ? "h-6 duration-1000" : "duration-500"
+                }`}
              />
            </a>
            <div
-             className={`shrink-0 transition-all duration-700 ease-out ${
-               scrolled ? "max-w-0 overflow-hidden" : "grow basis-0"
-             }`}
+              className={`shrink-0 transition-all ease-out ${
+                scrolled ? "max-w-0 overflow-hidden duration-1000" : "grow basis-0 duration-500"
+              }`}
            />
            <div
-             className={`flex items-center gap-4 transition-all duration-700 ease-out ${
-               scrolled ? "" : "ms-6"
-             }`}
+              className={`flex items-center gap-4 transition-all ease-out ${
+                scrolled ? "duration-1000" : "ms-6 duration-500"
+              }`}
           >
             <ul className="hidden items-center gap-6 md:flex">
               {links.map((link) => (
                 <li key={link.key}>
                   <a
                     href={link.href}
-                    className={`group relative text-stone-500 no-underline transition-colors duration-300 hover:text-[#C7AC60] dark:text-stone-400 dark:hover:text-[#C7AC60] ${
-                      scrolled ? "text-xs" : "text-sm"
-                    }`}
+                     className={`group relative text-stone-500 no-underline transition-all ease-out hover:text-[#C7AC60] dark:text-stone-400 dark:hover:text-[#C7AC60] ${
+                       scrolled ? "text-xs duration-1000" : "text-sm duration-500"
+                     }`}
                   >
                     {t(link.key)}
                     <span className="absolute -bottom-0.5 start-0 h-0.5 w-0 bg-[#C7AC60] transition-all duration-300 group-hover:w-full" />
@@ -117,8 +117,8 @@ export default function Nav() {
               <svg
                 viewBox="0 0 24 24"
                 fill="#C7AC60"
-                className={`transition-all duration-700 ease-out ${
-                  scrolled ? "h-3.5 w-3.5" : "h-4 w-4"
+                className={`transition-all ease-out ${
+                  scrolled ? "h-3.5 w-3.5 duration-1000" : "h-4 w-4 duration-500"
                 }`}
               >
                 {theme === "dark" ? (
@@ -135,17 +135,17 @@ export default function Nav() {
               aria-label="Menu"
             >
               <span
-                className={`block h-0.5 rounded bg-stone-900 transition-all duration-300 dark:bg-stone-100 ${
+                className={`block h-0.5 rounded bg-[#C7AC60] transition-all duration-300 ${
                   menuOpen ? "w-[22px] translate-y-[7px] rotate-45" : "w-[22px]"
                 }`}
               />
               <span
-                className={`block h-0.5 rounded bg-stone-900 transition-all duration-300 dark:bg-stone-100 ${
+                className={`block h-0.5 rounded bg-[#C7AC60] transition-all duration-300 ${
                   menuOpen ? "w-[22px] opacity-0" : "w-[22px]"
                 }`}
               />
               <span
-                className={`block h-0.5 rounded bg-stone-900 transition-all duration-300 dark:bg-stone-100 ${
+                className={`block h-0.5 rounded bg-[#C7AC60] transition-all duration-300 ${
                   menuOpen
                     ? "w-[22px] -translate-y-[7px] -rotate-45"
                     : "w-[22px]"

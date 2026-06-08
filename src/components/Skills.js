@@ -15,7 +15,7 @@ export default function Skills() {
   return (
     <section id="skills">
       <div className="mx-auto max-w-[1100px] px-6 py-28">
-        <p className="section-label mb-3 font-mono text-[11px] uppercase tracking-[0.18em] text-stone-400">
+        <p className="section-label mb-3 inline-block rounded-full border border-[#C7AC60] px-3.5 py-1.5 font-mono font-semibold text-[12px] uppercase tracking-[0.18em] text-stone-400">
           {t("skillsLabel")}
         </p>
         <h2 className="text-[clamp(1.5rem,3.5vw,2.25rem)] font-semibold leading-tight tracking-tight">
@@ -33,7 +33,7 @@ export default function Skills() {
                 delay: (i % 4) * 0.08 + Math.floor(i / 4) * 0.08,
                 ease: [0.16, 1, 0.3, 1],
               }}
-              className="inline-flex items-center gap-2.5 rounded-xl border border-stone-200 bg-stone-50 px-4.5 py-3.5 text-sm font-medium transition-all duration-300 hover:border-[#C7AC60] hover:bg-[#F5EDD0] hover:-translate-y-0.5 dark:border-stone-700 dark:bg-transparent dark:hover:border-[#C7AC60] dark:hover:bg-[#3C3218]"
+              className="inline-flex h-12 items-center gap-2 rounded-xl border border-[#C7AC60] px-7 text-sm font-medium text-[#C7AC60] transition-all duration-300 hover:bg-[#F5EDD0] hover:-translate-y-0.5"
             >
               <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-[#C7AC60]" />
               <span>{t(key)}</span>

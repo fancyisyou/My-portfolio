@@ -8,6 +8,10 @@ const items = [
   { dateKey: "exp2Date", roleKey: "exp2Role", companyKey: "exp2Company", descKey: "exp2Desc", delay: 0.1 },
   { dateKey: "exp3Date", roleKey: "exp3Role", companyKey: "exp3Company", descKey: "exp3Desc", delay: 0.2 },
   { dateKey: "exp4Date", roleKey: "exp4Role", companyKey: "exp4Company", descKey: "exp4Desc", delay: 0.3 },
+  { dateKey: "exp5Date", roleKey: "exp5Role", companyKey: "exp5Company", descKey: "exp5Desc", delay: 0.4 },
+  { dateKey: "exp6Date", roleKey: "exp6Role", companyKey: "exp6Company", descKey: "exp6Desc", delay: 0.5 },
+  { dateKey: "exp7Date", roleKey: "exp7Role", companyKey: "exp7Company", descKey: "exp7Desc", delay: 0.6 },
+  { dateKey: "exp8Date", roleKey: "exp8Role", companyKey: "exp8Company", descKey: "exp8Desc", delay: 0.7 },
 ];
 
 export default function Experience() {
@@ -16,7 +20,7 @@ export default function Experience() {
   return (
     <section id="experience">
       <div className="mx-auto max-w-[1100px] px-6 py-28">
-        <p className="section-label mb-3 font-mono text-[11px] uppercase tracking-[0.18em] text-stone-400">
+        <p className="section-label mb-3 inline-block rounded-full border border-[#C7AC60] px-3.5 py-1.5 font-mono font-semibold text-[12px] uppercase tracking-[0.18em] text-stone-400">
           {t("expLabel")}
         </p>
         <h2 className="text-[clamp(1.5rem,3.5vw,2.25rem)] font-semibold leading-tight tracking-tight">
@@ -34,7 +38,7 @@ export default function Experience() {
               className="relative pb-10 ps-8 last:pb-0"
             >
               <div className="absolute start-[-4px] top-[6px] h-[9px] w-[9px] rounded-full border-2 border-stone-50 bg-[#C7AC60] dark:border-stone-950" />
-              <p className="mb-1.5 font-mono text-xs text-stone-400">
+              <p className="mb-1.5 font-mono font-semibold text-xs text-stone-400">
                 {t(item.dateKey)}
               </p>
               <p className="text-lg font-semibold">{t(item.roleKey)}</p>

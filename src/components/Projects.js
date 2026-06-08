@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useMemo } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { useTranslation } from "./LanguageProvider";
 
@@ -8,177 +8,211 @@ const projects = [
   {
     titleKey: "proj1Title",
     descKey: "proj1Desc",
-    img: "https://picsum.photos/seed/amara-brand/600/375",
-    tags: ["Brand Identity"],
-    category: "Graphic Design",
+    img: "https://images.unsplash.com/photo-1561070791-2526d30994b5?w=600&h=375&fit=crop",
+    tags: ["Brand Identity", "Print Design"],
+    images: [
+      "https://picsum.photos/seed/proj1-g1/800/600",
+      "https://picsum.photos/seed/proj1-g2/800/600",
+      "https://picsum.photos/seed/proj1-g3/800/600",
+      "https://picsum.photos/seed/proj1-g4/800/600",
+    ],
   },
   {
     titleKey: "proj2Title",
     descKey: "proj2Desc",
-    img: "https://picsum.photos/seed/form-journal/600/375",
-    tags: ["Art Direction"],
-    category: "Graphic Design",
+    img: "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=600&h=375&fit=crop",
+    tags: ["Campaign", "Art Direction"],
+    images: [
+      "https://picsum.photos/seed/proj2-g1/800/600",
+      "https://picsum.photos/seed/proj2-g2/800/600",
+      "https://picsum.photos/seed/proj2-g3/800/600",
+      "https://picsum.photos/seed/proj2-g4/800/600",
+    ],
   },
   {
     titleKey: "proj3Title",
     descKey: "proj3Desc",
-    img: "https://picsum.photos/seed/pixel-studios/600/375",
-    tags: ["Strategy"],
-    category: "Creative Consultancy",
+    img: "https://images.unsplash.com/photo-1559136555-9303baea8ebd?w=600&h=375&fit=crop",
+    tags: ["Strategy", "Positioning"],
+    images: [
+      "https://picsum.photos/seed/proj3-g1/800/600",
+      "https://picsum.photos/seed/proj3-g2/800/600",
+      "https://picsum.photos/seed/proj3-g3/800/600",
+      "https://picsum.photos/seed/proj3-g4/800/600",
+    ],
   },
   {
     titleKey: "proj4Title",
     descKey: "proj4Desc",
-    img: "https://picsum.photos/seed/design-sprint/600/375",
-    tags: ["Workshop"],
-    category: "Creative Consultancy",
+    img: "https://images.unsplash.com/photo-1452587925148-ce544e77e70d?w=600&h=375&fit=crop",
+    tags: ["Still Life", "Editorial"],
+    images: [
+      "https://picsum.photos/seed/proj4-g1/800/600",
+      "https://picsum.photos/seed/proj4-g2/800/600",
+      "https://picsum.photos/seed/proj4-g3/800/600",
+      "https://picsum.photos/seed/proj4-g4/800/600",
+    ],
   },
   {
     titleKey: "proj5Title",
     descKey: "proj5Desc",
-    img: "https://picsum.photos/seed/nova-launch/600/375",
-    tags: ["Campaign"],
-    category: "Creative Direction",
+    img: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=375&fit=crop",
+    tags: ["UI/UX", "Responsive"],
+    images: [
+      "https://picsum.photos/seed/proj5-g1/800/600",
+      "https://picsum.photos/seed/proj5-g2/800/600",
+      "https://picsum.photos/seed/proj5-g3/800/600",
+      "https://picsum.photos/seed/proj5-g4/800/600",
+    ],
   },
   {
     titleKey: "proj6Title",
     descKey: "proj6Desc",
-    img: "https://picsum.photos/seed/onda-brand/600/375",
-    tags: ["Visual Identity"],
-    category: "Creative Direction",
+    img: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=600&h=375&fit=crop",
+    tags: ["LMS", "Dashboard"],
+    images: [
+      "https://picsum.photos/seed/proj6-g1/800/600",
+      "https://picsum.photos/seed/proj6-g2/800/600",
+      "https://picsum.photos/seed/proj6-g3/800/600",
+      "https://picsum.photos/seed/proj6-g4/800/600",
+    ],
   },
   {
     titleKey: "proj7Title",
     descKey: "proj7Desc",
-    img: "https://picsum.photos/seed/craft-series/600/375",
-    tags: ["Still Life"],
-    category: "Photography",
+    img: "https://images.unsplash.com/photo-1571624436279-b272aff752b5?w=600&h=375&fit=crop",
+    tags: ["Media Relations", "Press Kit"],
+    images: [
+      "https://picsum.photos/seed/proj7-g1/800/600",
+      "https://picsum.photos/seed/proj7-g2/800/600",
+      "https://picsum.photos/seed/proj7-g3/800/600",
+      "https://picsum.photos/seed/proj7-g4/800/600",
+    ],
   },
   {
     titleKey: "proj8Title",
     descKey: "proj8Desc",
-    img: "https://picsum.photos/seed/faces-lisbon/600/375",
-    tags: ["Portrait"],
-    category: "Photography",
+    img: "https://images.unsplash.com/photo-1606857521015-7f9fcf423740?w=600&h=375&fit=crop",
+    tags: ["Local Guide", "Content"],
+    images: [
+      "https://picsum.photos/seed/proj8-g1/800/600",
+      "https://picsum.photos/seed/proj8-g2/800/600",
+      "https://picsum.photos/seed/proj8-g3/800/600",
+      "https://picsum.photos/seed/proj8-g4/800/600",
+    ],
   },
-  {
-    titleKey: "proj9Title",
-    descKey: "proj9Desc",
-    img: "https://picsum.photos/seed/salesflow/600/375",
-    tags: ["CRM", "Dashboard"],
-    category: "CRM & LMS",
-  },
-  {
-    titleKey: "proj10Title",
-    descKey: "proj10Desc",
-    img: "https://picsum.photos/seed/edupath/600/375",
-    tags: ["LMS", "Product Design"],
-    category: "CRM & LMS",
-  },
-  {
-    titleKey: "proj11Title",
-    descKey: "proj11Desc",
-    img: "https://picsum.photos/seed/greenfuture/600/375",
-    tags: ["Press Kit"],
-    category: "Public Relations",
-  },
-  {
-    titleKey: "proj12Title",
-    descKey: "proj12Desc",
-    img: "https://picsum.photos/seed/tech-summit/600/375",
-    tags: ["Event", "PR"],
-    category: "Public Relations",
-  },
-];
-
-const filters = [
-  "All",
-  "Graphic Design",
-  "Creative Consultancy",
-  "Creative Direction",
-  "Photography",
-  "CRM & LMS",
-  "Public Relations",
 ];
 
 export default function Projects() {
   const t = useTranslation();
-  const [activeFilter, setActiveFilter] = useState("All");
+  const [selectedProject, setSelectedProject] = useState(null);
 
-  const filtered = useMemo(
-    () =>
-      activeFilter === "All"
-        ? projects
-        : projects.filter((p) => p.category === activeFilter),
-    [activeFilter]
-  );
+  useEffect(() => {
+    if (!selectedProject) return;
+    const handleKey = (e) => {
+      if (e.key === "Escape") setSelectedProject(null);
+    };
+    document.addEventListener("keydown", handleKey);
+    return () => document.removeEventListener("keydown", handleKey);
+  }, [selectedProject]);
 
   return (
     <section id="projects">
-      <div className="mx-auto max-w-[1100px] px-6 py-28">
-        <p className="section-label mb-3 font-mono text-[11px] uppercase tracking-[0.18em] text-stone-400">
+      <div className="mx-auto max-w-[1100px] px-6 pt-28 pb-28">
+        <p className="section-label mb-3 inline-block rounded-full border border-[#C7AC60] px-3.5 py-1.5 font-mono font-semibold text-[12px] uppercase tracking-[0.18em] text-stone-400">
           {t("projectsLabel")}
         </p>
         <h2 className="text-[clamp(1.5rem,3.5vw,2.25rem)] font-semibold leading-tight tracking-tight">
           {t("projectsTitle")}
         </h2>
 
-        <div className="mt-8 mb-[-8px] flex flex-wrap gap-2">
-          {filters.map((filter) => (
-            <button
-              key={filter}
-              onClick={() => setActiveFilter(filter)}
-              className={`filter-label rounded-full border px-3.5 py-1.5 font-mono text-[11px] tracking-wide whitespace-nowrap transition-all duration-300 ${
-                activeFilter === filter
-                  ? "border-[#C7AC60] bg-[#C7AC60] text-[#fafaf9]"
-                  : "border-stone-200 bg-transparent text-stone-400 hover:border-[#C7AC60] hover:text-[#C7AC60] dark:border-stone-700"
-              }`}
+        <div className="mt-10 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+          {projects.map((project, index) => (
+            <motion.div
+              key={project.titleKey}
+              initial={{ y: 24 }}
+              whileInView={{ y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: index * 0.08 }}
+              onClick={() => setSelectedProject(project)}
+              className="group cursor-pointer overflow-hidden rounded-xl border border-[#C7AC60]/30 bg-white shadow-lg transition-all duration-300 hover:-translate-y-1 hover:border-[#C7AC60] hover:shadow-xl dark:bg-transparent"
             >
-              {t("filter" + filter.replace(/\s+/g, ""))}
-            </button>
-          ))}
-        </div>
-
-        <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          <AnimatePresence mode="popLayout">
-            {filtered.map((project) => (
-              <motion.div
-                key={project.titleKey}
-                layout
-                initial={{ opacity: 0, y: 12 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: 12, scale: 0.96 }}
-                transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
-                className="overflow-hidden rounded-xl border border-stone-200 bg-stone-100 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg dark:border-stone-700 dark:bg-stone-900/50"
-              >
+              <div className="aspect-[16/10] w-full overflow-hidden">
                 <img
                   src={project.img}
                   alt=""
-                  className="aspect-[16/10] w-full border-b border-stone-200 object-cover dark:border-stone-700"
+                  className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                 />
-                <div className="px-5 py-4">
-                  <h3 className="text-base font-semibold">
-                    {t(project.titleKey)}
-                  </h3>
-                  <p className="mb-3 text-[13px] leading-relaxed text-stone-500">
-                    {t(project.descKey)}
-                  </p>
-                  <div className="flex flex-wrap gap-1.5">
-                    {project.tags.map((tag) => (
-                      <span
-                        key={tag + project.titleKey}
-                        className="rounded-md bg-stone-200 px-2 py-0.5 font-mono text-[10px] tracking-wide text-stone-500 dark:bg-stone-800"
-                      >
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
+              </div>
+              <div className="bg-white px-5 py-4 dark:bg-transparent">
+                <h3 className="text-base font-semibold">
+                  {t(project.titleKey)}
+                </h3>
+                <p className="mb-3 text-[13px] leading-relaxed text-stone-500">
+                  {t(project.descKey)}
+                </p>
+                <div className="flex flex-wrap gap-1.5">
+                  {project.tags.map((tag) => (
+                    <span
+                      key={tag + project.titleKey}
+                      className="rounded-md border border-[#C7AC60]/30 bg-transparent px-2 py-0.5 font-mono font-semibold text-[12px] tracking-wide text-[#C7AC60]"
+                    >
+                      {tag}
+                    </span>
+                  ))}
                 </div>
-              </motion.div>
-            ))}
-          </AnimatePresence>
+              </div>
+            </motion.div>
+          ))}
         </div>
       </div>
+
+      <AnimatePresence>
+        {selectedProject && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.25 }}
+            onClick={() => setSelectedProject(null)}
+            className="fixed inset-0 z-[99999] flex items-start justify-center overflow-y-auto bg-black/70 p-4 pt-16 backdrop-blur-sm"
+          >
+            <motion.div
+              initial={{ scale: 0.92, opacity: 0, y: 20 }}
+              animate={{ scale: 1, opacity: 1, y: 0 }}
+              exit={{ scale: 0.92, opacity: 0, y: 20 }}
+              transition={{ duration: 0.3 }}
+              onClick={(e) => e.stopPropagation()}
+              className="relative w-full max-w-4xl rounded-2xl border border-[#C7AC60]/20 bg-white p-6 shadow-2xl dark:bg-stone-900 dark:border-stone-700"
+            >
+              <button
+                onClick={() => setSelectedProject(null)}
+                className="absolute end-4 top-4 z-10 flex h-8 w-8 items-center justify-center rounded-full bg-stone-200 text-sm text-stone-500 transition-colors hover:bg-[#C7AC60] hover:text-white dark:bg-stone-700 dark:text-stone-400 dark:hover:bg-[#C7AC60]"
+              >
+                ✕
+              </button>
+
+              <h3 className="mb-1 pe-10 text-xl font-semibold">
+                {t(selectedProject.titleKey)}
+              </h3>
+              <p className="mb-6 text-sm leading-relaxed text-stone-500">
+                {t(selectedProject.descKey)}
+              </p>
+
+              <div className="grid grid-cols-2 gap-4 md:grid-cols-3">
+                {selectedProject.images.map((src, i) => (
+                  <img
+                    key={src}
+                    src={src}
+                    alt=""
+                    className="aspect-[4/3] w-full rounded-lg object-cover shadow-md transition-transform duration-300 hover:scale-[1.02]"
+                  />
+                ))}
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </section>
   );
 }
