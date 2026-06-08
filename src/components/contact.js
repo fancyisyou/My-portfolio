@@ -158,12 +158,7 @@ export default function Contact() {
             {t("contactLabel")}
           </p>
 
-          <p
-            className="text-[clamp(2rem,4vw,3rem)] font-semibold leading-none tracking-tight text-stone-800 dark:text-stone-100"
-            style={{ fontFamily: "var(--font-arabic)" }}
-          >
-            اتصل
-          </p>
+
         </motion.div>
       </PulseBeams>
     </section>
