@@ -3,7 +3,7 @@
 import { motion } from "motion/react";
 import { useTranslation } from "./LanguageProvider";
 import { PulseBeams } from "@/components/ui/pulse-beams";
-import { DownloadSimple } from "@phosphor-icons/react";
+import { IdentificationCard } from "@phosphor-icons/react";
 
 const contactBeams = [
   {
@@ -125,7 +125,7 @@ export default function Contact() {
               onClick={downloadVCard}
               className="inline-flex h-14 cursor-pointer items-center gap-3 rounded-xl border border-[#C7AC60]/30 bg-[#C7AC60]/10 px-8 text-sm font-semibold tracking-wider text-stone-700 uppercase transition-all duration-300 hover:bg-[#C7AC60] hover:text-[#fafaf9] hover:-translate-y-0.5 active:scale-[0.97] dark:text-stone-300"
             >
-              <DownloadSimple size={20} weight="bold" />
+              <IdentificationCard size={22} weight="bold" />
               <span>{t("contactDownload")}</span>
             </button>
           </div>
