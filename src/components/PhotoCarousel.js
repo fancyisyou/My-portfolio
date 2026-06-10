@@ -184,7 +184,7 @@ export default function PhotoCarousel({ photos: photosProp, onClose, onBack, cat
 
   const w = 200;
   const h = 267;
-  const radius = 340;
+  const radius = Math.max(340, (w * n) / (2 * Math.PI));
 
   return (
     <motion.div
