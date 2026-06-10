@@ -121,7 +121,7 @@ export default function PhotoCarousel({ photos: photosProp, onClose, onBack, cat
 
   if (reduceMotion) {
     return (
-      <div className="fixed inset-0 z-[99999] flex items-center justify-center bg-black/95">
+      <div className="fixed inset-0 z-[99999] flex items-center justify-center bg-black/95 select-none">
         <div className="absolute start-4 end-4 top-4 z-20 flex items-center justify-between">
           <div className="flex items-center gap-3">
             {onBack && (
@@ -171,7 +171,7 @@ export default function PhotoCarousel({ photos: photosProp, onClose, onBack, cat
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 0.3 }}
-      className="fixed inset-0 z-[99999] flex items-center justify-center bg-black/95"
+      className="fixed inset-0 z-[99999] flex items-center justify-center bg-black/95 select-none"
     >
       <div className="absolute start-4 end-4 top-4 z-20 flex items-center justify-between">
         <div className="flex items-center gap-3">
