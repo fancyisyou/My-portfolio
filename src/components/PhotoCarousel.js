@@ -75,8 +75,6 @@ export default function PhotoCarousel({ photos: photosProp, onClose, onBack, cat
   const rotation = useMotionValue(0);
   const [frontIdx, setFrontIdx] = useState(0);
   const frontIdxRef = useRef(0);
-  const isDragging = useRef(false);
-  const lastX = useRef(0);
 
   const n = photos.length;
 
@@ -119,25 +117,6 @@ export default function PhotoCarousel({ photos: photosProp, onClose, onBack, cat
       damping: 25,
       onComplete: () => updateFrontFromRotation(),
     });
-  };
-
-  const handlePointerDown = (e) => {
-    isDragging.current = true;
-    lastX.current = e.clientX;
-  };
-
-  const handlePointerMove = (e) => {
-    if (!isDragging.current) return;
-    const dx = e.clientX - lastX.current;
-    rotation.set(rotation.get() + dx * 0.3);
-    lastX.current = e.clientX;
-    updateFrontFromRotation();
-  };
-
-  const handlePointerUp = () => {
-    if (!isDragging.current) return;
-    isDragging.current = false;
-    updateFrontFromRotation();
   };
 
   if (reduceMotion) {
@@ -193,11 +172,6 @@ export default function PhotoCarousel({ photos: photosProp, onClose, onBack, cat
       exit={{ opacity: 0 }}
       transition={{ duration: 0.3 }}
       className="fixed inset-0 z-[99999] flex items-center justify-center bg-black/95"
-      onPointerDown={handlePointerDown}
-      onPointerMove={handlePointerMove}
-      onPointerUp={handlePointerUp}
-      onPointerLeave={handlePointerUp}
-      style={{ touchAction: "none" }}
     >
       <div className="absolute start-4 end-4 top-4 z-20 flex items-center justify-between">
         <div className="flex items-center gap-3">
@@ -263,7 +237,6 @@ export default function PhotoCarousel({ photos: photosProp, onClose, onBack, cat
                   left: -w / 2,
                   top: -h / 2,
                   transform: `rotateY(${angle}deg) translateZ(${radius}px)`,
-                  cursor: "grab",
                   borderRadius: "0.5rem",
                   overflow: "hidden",
                   boxShadow: "0 4px 20px rgba(0,0,0,0.4)",
