@@ -287,11 +287,6 @@ export default function PhotoCarousel({ photos: photosProp, onClose, onBack, cat
         </motion.div>
       </div>
 
-      <div className="pointer-events-none absolute bottom-8 start-0 end-0 z-10 flex flex-col items-center gap-3">
-        <p className="text-xs uppercase tracking-[0.2em] text-stone-500">
-          {t("dragToExplore")}
-        </p>
-      </div>
     </motion.div>
   );
 }
