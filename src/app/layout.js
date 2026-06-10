@@ -27,6 +27,10 @@ export const metadata = {
   title: "Daniel — Design & Development",
   description:
     "Portfolio of Daniel. Product designer and front-end developer crafting thoughtful digital experiences.",
+  icons: {
+    icon: "/favicon.png",
+    shortcut: "/favicon.png",
+  },
 };
 
 export default function RootLayout({ children }) {
@@ -47,6 +51,11 @@ export default function RootLayout({ children }) {
                   t = window.matchMedia('(prefers-color-scheme:dark)').matches ? 'dark' : 'light';
                 }
                 document.documentElement.setAttribute('data-theme', t);
+                var l = localStorage.getItem('lang');
+                if (l === 'ar') {
+                  document.documentElement.setAttribute('lang', 'ar');
+                  document.documentElement.setAttribute('dir', 'rtl');
+                }
               })();
             `,
           }}

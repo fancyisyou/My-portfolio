@@ -34,12 +34,12 @@ export default function Nav() {
   }, [menuOpen]);
 
   const links = [
-    { href: "#hero", key: "navHome" },
-    { href: "#about", key: "navAbout" },
-    { href: "#experience", key: "navExp" },
-    { href: "#skills", key: "navSkills" },
-    { href: "#projects", key: "navProjects" },
-    { href: "#contact", key: "navContact" },
+    { href: "/#hero", key: "navHome" },
+    { href: "/#about", key: "navAbout" },
+    { href: "/#experience", key: "navExp" },
+    { href: "/#skills", key: "navSkills" },
+    { href: "/#projects", key: "navProjects" },
+    { href: "/#contact", key: "navContact" },
   ];
 
   if (!mounted) return null;
@@ -54,7 +54,7 @@ export default function Nav() {
               : "w-full max-w-[1100px]"
           }`}
         >
-          <a href="#hero" className="flex shrink-0 items-center">
+          <a href="/#hero" className="flex shrink-0 items-center">
             <img
               src="/logo.png"
               alt="Daniel"
@@ -112,7 +112,7 @@ export default function Nav() {
             <button
               onClick={toggle}
               className="flex items-center border-none bg-transparent p-1"
-              aria-label="Toggle theme"
+              aria-label={t("navToggleTheme")}
             >
               <svg
                 viewBox="0 0 24 24"
@@ -132,7 +132,7 @@ export default function Nav() {
             <button
               className="flex flex-col gap-1 border-none bg-transparent p-1 md:hidden"
               onClick={() => setMenuOpen(!menuOpen)}
-              aria-label="Menu"
+              aria-label={t("navMenu")}
             >
               <span
                 className={`block h-0.5 rounded bg-[#C7AC60] transition-all duration-300 ${

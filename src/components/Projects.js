@@ -3,13 +3,14 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { useTranslation } from "./LanguageProvider";
+import CategoryGrid from "./CategoryGrid";
 
 const projects = [
   {
     titleKey: "proj1Title",
     descKey: "proj1Desc",
     img: "https://images.unsplash.com/photo-1561070791-2526d30994b5?w=600&h=375&fit=crop",
-    tags: ["Brand Identity", "Print Design"],
+    tags: ["tagBrandIdentity", "tagPrintDesign"],
     images: [
       "https://picsum.photos/seed/proj1-g1/800/600",
       "https://picsum.photos/seed/proj1-g2/800/600",
@@ -21,7 +22,7 @@ const projects = [
     titleKey: "proj2Title",
     descKey: "proj2Desc",
     img: "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=600&h=375&fit=crop",
-    tags: ["Campaign", "Art Direction"],
+    tags: ["tagCampaign", "tagArtDirection"],
     images: [
       "https://picsum.photos/seed/proj2-g1/800/600",
       "https://picsum.photos/seed/proj2-g2/800/600",
@@ -33,7 +34,7 @@ const projects = [
     titleKey: "proj3Title",
     descKey: "proj3Desc",
     img: "https://images.unsplash.com/photo-1559136555-9303baea8ebd?w=600&h=375&fit=crop",
-    tags: ["Strategy", "Positioning"],
+    tags: ["tagStrategy", "tagPositioning"],
     images: [
       "https://picsum.photos/seed/proj3-g1/800/600",
       "https://picsum.photos/seed/proj3-g2/800/600",
@@ -45,7 +46,7 @@ const projects = [
     titleKey: "proj4Title",
     descKey: "proj4Desc",
     img: "https://images.unsplash.com/photo-1452587925148-ce544e77e70d?w=600&h=375&fit=crop",
-    tags: ["Still Life", "Editorial"],
+    tags: ["tagStillLife", "tagEditorial"],
     images: [
       "https://picsum.photos/seed/proj4-g1/800/600",
       "https://picsum.photos/seed/proj4-g2/800/600",
@@ -57,7 +58,7 @@ const projects = [
     titleKey: "proj5Title",
     descKey: "proj5Desc",
     img: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=375&fit=crop",
-    tags: ["UI/UX", "Responsive"],
+    tags: ["tagUIUX", "tagResponsive"],
     images: [
       "https://picsum.photos/seed/proj5-g1/800/600",
       "https://picsum.photos/seed/proj5-g2/800/600",
@@ -69,7 +70,7 @@ const projects = [
     titleKey: "proj6Title",
     descKey: "proj6Desc",
     img: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=600&h=375&fit=crop",
-    tags: ["LMS", "Dashboard"],
+    tags: ["tagLMS", "tagDashboard"],
     images: [
       "https://picsum.photos/seed/proj6-g1/800/600",
       "https://picsum.photos/seed/proj6-g2/800/600",
@@ -81,7 +82,7 @@ const projects = [
     titleKey: "proj7Title",
     descKey: "proj7Desc",
     img: "https://images.unsplash.com/photo-1571624436279-b272aff752b5?w=600&h=375&fit=crop",
-    tags: ["Media Relations", "Press Kit"],
+    tags: ["tagMediaRelations", "tagPressKit"],
     images: [
       "https://picsum.photos/seed/proj7-g1/800/600",
       "https://picsum.photos/seed/proj7-g2/800/600",
@@ -93,7 +94,7 @@ const projects = [
     titleKey: "proj8Title",
     descKey: "proj8Desc",
     img: "https://images.unsplash.com/photo-1606857521015-7f9fcf423740?w=600&h=375&fit=crop",
-    tags: ["Local Guide", "Content"],
+    tags: ["tagLocalGuide", "tagContent"],
     images: [
       "https://picsum.photos/seed/proj8-g1/800/600",
       "https://picsum.photos/seed/proj8-g2/800/600",
@@ -106,6 +107,7 @@ const projects = [
 export default function Projects() {
   const t = useTranslation();
   const [selectedProject, setSelectedProject] = useState(null);
+  const [categoryGridOpen, setCategoryGridOpen] = useState(false);
 
   useEffect(() => {
     if (!selectedProject) return;
@@ -127,43 +129,48 @@ export default function Projects() {
         </h2>
 
         <div className="mt-10 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {projects.map((project, index) => (
-            <motion.div
-              key={project.titleKey}
-              initial={{ y: 24 }}
-              whileInView={{ y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.08 }}
-              onClick={() => setSelectedProject(project)}
-              className="group cursor-pointer overflow-hidden rounded-xl border border-[#C7AC60]/30 bg-white shadow-lg transition-all duration-300 hover:-translate-y-1 hover:border-[#C7AC60] hover:shadow-xl dark:bg-transparent"
-            >
-              <div className="aspect-[16/10] w-full overflow-hidden">
-                <img
-                  src={project.img}
-                  alt=""
-                  className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-                />
-              </div>
-              <div className="bg-white px-5 py-4 dark:bg-transparent">
-                <h3 className="text-base font-semibold">
-                  {t(project.titleKey)}
-                </h3>
-                <p className="mb-3 text-[13px] leading-relaxed text-stone-500">
-                  {t(project.descKey)}
-                </p>
-                <div className="flex flex-wrap gap-1.5">
-                  {project.tags.map((tag) => (
-                    <span
-                      key={tag + project.titleKey}
-                      className="rounded-md border border-[#C7AC60]/30 bg-transparent px-2 py-0.5 font-mono font-semibold text-[12px] tracking-wide text-[#C7AC60]"
-                    >
-                      {tag}
-                    </span>
-                  ))}
+          {projects.map((project, index) => {
+            const isPhotography = project.titleKey === "proj4Title";
+            const Card = (
+              <motion.div
+                key={project.titleKey}
+                initial={{ y: 24 }}
+                whileInView={{ y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.08 }}
+                onClick={() => isPhotography ? setCategoryGridOpen(true) : setSelectedProject(project)}
+                className="group overflow-hidden rounded-xl border border-[#C7AC60]/30 bg-white shadow-lg transition-all duration-300 hover:-translate-y-1 hover:border-[#C7AC60] hover:shadow-xl dark:bg-transparent"
+              >
+                <div className="aspect-[16/10] w-full overflow-hidden">
+                  <img
+                    src={project.img}
+                    alt=""
+                    className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
                 </div>
-              </div>
-            </motion.div>
-          ))}
+                <div className="bg-white px-5 py-4 dark:bg-transparent">
+                  <h3 className="text-base font-semibold">
+                    {t(project.titleKey)}
+                  </h3>
+                  <p className="mb-3 text-[13px] leading-relaxed text-stone-500">
+                    {t(project.descKey)}
+                  </p>
+                  <div className="flex flex-wrap gap-1.5">
+                    {project.tags.map((tag) => (
+                      <span
+                        key={tag + project.titleKey}
+                        className="rounded-md border border-[#C7AC60]/30 bg-transparent px-2 py-0.5 font-mono font-semibold text-[12px] tracking-wide text-[#C7AC60]"
+                      >
+                        {t(tag)}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </motion.div>
+            );
+
+            return Card;
+          })}
         </div>
       </div>
 
@@ -211,6 +218,12 @@ export default function Projects() {
               </div>
             </motion.div>
           </motion.div>
+        )}
+      </AnimatePresence>
+
+      <AnimatePresence>
+        {categoryGridOpen && (
+          <CategoryGrid onClose={() => setCategoryGridOpen(false)} />
         )}
       </AnimatePresence>
     </section>

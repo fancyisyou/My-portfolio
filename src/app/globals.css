@@ -71,8 +71,18 @@ section[id] {
   inherits: false;
 }
 
+@property --ang {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
 @keyframes spin-slow {
   to { --angle: 360deg; }
+}
+
+@keyframes spin-border {
+  to { --ang: 360deg; }
 }
 
 [dir="rtl"] .section-label,
