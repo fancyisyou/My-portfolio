@@ -31,7 +31,7 @@ export default function CategoryGrid({ onClose }) {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="fixed inset-0 z-[99999] flex flex-col bg-black/95 px-6 py-8"
+            className="fixed inset-0 z-[99999] flex flex-col bg-black/95 px-6 max-sm:py-4 py-8"
           >
             <div className="mx-auto flex w-full max-w-5xl items-center justify-between">
               <h2 className="text-xl font-semibold text-white/90">
@@ -45,7 +45,7 @@ export default function CategoryGrid({ onClose }) {
               </button>
             </div>
 
-            <div className="mx-auto mt-10 grid w-full max-w-5xl flex-1 grid-cols-1 justify-items-center gap-5 sm:grid-cols-2 lg:grid-cols-3 content-center pb-12">
+            <div className="mx-auto mt-10 grid w-full max-w-5xl flex-1 grid-cols-2 justify-items-center gap-5 max-sm:mt-4 max-sm:gap-3 lg:grid-cols-3 content-center">
               {categories.map((cat, i) => (
                 <motion.button
                   key={cat.id}
@@ -53,9 +53,9 @@ export default function CategoryGrid({ onClose }) {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.4, delay: i * 0.06 }}
                   onClick={() => setSelectedCategory(cat)}
-                  className="group flex aspect-[3/2] w-full max-w-60 flex-col items-center justify-center rounded-xl border border-stone-700/60 bg-stone-900/50 transition-all duration-300 hover:-translate-y-1 hover:border-[#C7AC60] hover:shadow-[0_0_30px_rgba(199,172,96,0.15)]"
+                  className="group flex max-sm:aspect-square aspect-[3/2] w-full max-sm:max-w-44 max-w-60 flex-col items-center justify-center rounded-xl border border-stone-700/60 bg-stone-900/50 transition-all duration-300 hover:-translate-y-1 hover:border-[#C7AC60] hover:shadow-[0_0_30px_rgba(199,172,96,0.15)]"
                 >
-                  <span className="text-2xl font-semibold text-white/90 transition-colors duration-300 group-hover:text-[#C7AC60]">
+                  <span className="max-sm:text-lg text-2xl font-semibold text-white/90 transition-colors duration-300 group-hover:text-[#C7AC60]">
                     {lang === "ar" ? cat.nameAr : cat.nameEn}
                   </span>
                   <span className="mt-2 text-[10px] text-stone-600">
