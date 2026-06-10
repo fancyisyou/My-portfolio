@@ -68,23 +68,6 @@ const categories = [
     ],
   },
   {
-    id: "landscape",
-    nameAr: "المناظر الطبيعية",
-    nameEn: "Landscape",
-    photos: [
-      { url: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=600&h=800&fit=crop", title: "Wilderness", desc: "Untouched landscapes", pos: "50% 50%" },
-      { url: "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=600&h=800&fit=crop", title: "Summit", desc: "Above the clouds", pos: "50% 30%" },
-      { url: "https://images.unsplash.com/photo-1505118380757-91f5f5632de0?w=600&h=800&fit=crop", title: "Horizon", desc: "Where sky meets sea", pos: "50% 50%" },
-      { url: "https://images.unsplash.com/photo-1509316785289-025f5b846b35?w=600&h=800&fit=crop", title: "Solitude", desc: "Silence in the dunes", pos: "50% 50%" },
-      { url: "https://images.unsplash.com/photo-1518173946687-a33f2e0f1c0a?w=600&h=800&fit=crop", title: "Golden Hour", desc: "Warm light over still waters", pos: "50% 50%" },
-      { url: "https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=600&h=800&fit=crop", title: "Vast", desc: "Nature on a grand scale", pos: "50% 50%" },
-      { url: "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=600&h=800&fit=crop", title: "Forest", desc: "Deep woods silence", pos: "50% 50%" },
-      { url: "https://images.unsplash.com/photo-1470071459604-3b5f12b1f8c7?w=600&h=800&fit=crop", title: "Misty", desc: "Morning fog rolling in", pos: "50% 50%" },
-      { url: "https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?w=600&h=800&fit=crop", title: "Trail", desc: "Paths less traveled", pos: "50% 50%" },
-      { url: "https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=600&h=800&fit=crop", title: "Sunset", desc: "Day's farewell", pos: "50% 50%" },
-    ],
-  },
-  {
     id: "products",
     nameAr: "المنتجات",
     nameEn: "Products",
