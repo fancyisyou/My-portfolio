@@ -26,18 +26,6 @@ const projects = [
     ],
   },
   {
-    titleKey: "proj2Title",
-    descKey: "proj2Desc",
-    img: "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=600&h=375&fit=crop",
-    tags: ["tagCampaign", "tagArtDirection"],
-    images: [
-      "https://picsum.photos/seed/proj2-g1/800/600",
-      "https://picsum.photos/seed/proj2-g2/800/600",
-      "https://picsum.photos/seed/proj2-g3/800/600",
-      "https://picsum.photos/seed/proj2-g4/800/600",
-    ],
-  },
-  {
     titleKey: "proj3Title",
     descKey: "proj3Desc",
     img: "https://images.unsplash.com/photo-1559136555-9303baea8ebd?w=600&h=375&fit=crop",
