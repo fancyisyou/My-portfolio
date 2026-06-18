@@ -4,18 +4,25 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { useTranslation } from "./LanguageProvider";
 import CategoryGrid from "./CategoryGrid";
+import PhotoCarousel from "./PhotoCarousel";
 
 const projects = [
   {
     titleKey: "proj1Title",
     descKey: "proj1Desc",
-    img: "https://images.unsplash.com/photo-1561070791-2526d30994b5?w=600&h=375&fit=crop",
+    img: "/lumina/logo-01.jpg",
     tags: ["tagBrandIdentity", "tagPrintDesign"],
     images: [
-      "https://picsum.photos/seed/proj1-g1/800/600",
-      "https://picsum.photos/seed/proj1-g2/800/600",
-      "https://picsum.photos/seed/proj1-g3/800/600",
-      "https://picsum.photos/seed/proj1-g4/800/600",
+      "/lumina/logo-01.jpg",
+      "/lumina/logo-02.jpg",
+      "/lumina/logo-03.jpg",
+      "/lumina/logo-04.jpg",
+      "/lumina/logo-05.jpg",
+      "/lumina/logo-06.jpg",
+      "/lumina/logo-07.jpg",
+      "/lumina/logo-08.jpg",
+      "/lumina/logo-09.jpg",
+      "/lumina/logo-10.jpg",
     ],
   },
   {
@@ -175,7 +182,7 @@ export default function Projects() {
       </div>
 
       <AnimatePresence>
-        {selectedProject && (
+        {selectedProject && selectedProject.titleKey !== "proj1Title" && (
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -218,6 +225,22 @@ export default function Projects() {
               </div>
             </motion.div>
           </motion.div>
+        )}
+      </AnimatePresence>
+
+      <AnimatePresence>
+        {selectedProject && selectedProject.titleKey === "proj1Title" && (
+          <PhotoCarousel
+            photos={selectedProject.images.map((src, i) => ({
+              url: src,
+              title: `Lumina ${i + 1}`,
+              desc: "Visual Identity",
+              pos: "50% 50%",
+            }))}
+            categoryName={t(selectedProject.titleKey)}
+            onClose={() => setSelectedProject(null)}
+            onBack={() => setSelectedProject(null)}
+          />
         )}
       </AnimatePresence>
 
