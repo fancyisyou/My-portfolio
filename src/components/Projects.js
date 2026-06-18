@@ -49,30 +49,6 @@ const projects = [
       "https://picsum.photos/seed/proj5-g4/800/600",
     ],
   },
-  {
-    titleKey: "proj6Title",
-    descKey: "proj6Desc",
-    img: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=600&h=375&fit=crop",
-    tags: ["tagLMS", "tagDashboard"],
-    images: [
-      "https://picsum.photos/seed/proj6-g1/800/600",
-      "https://picsum.photos/seed/proj6-g2/800/600",
-      "https://picsum.photos/seed/proj6-g3/800/600",
-      "https://picsum.photos/seed/proj6-g4/800/600",
-    ],
-  },
-  {
-    titleKey: "proj7Title",
-    descKey: "proj7Desc",
-    img: "https://images.unsplash.com/photo-1571624436279-b272aff752b5?w=600&h=375&fit=crop",
-    tags: ["tagMediaRelations", "tagPressKit"],
-    images: [
-      "https://picsum.photos/seed/proj7-g1/800/600",
-      "https://picsum.photos/seed/proj7-g2/800/600",
-      "https://picsum.photos/seed/proj7-g3/800/600",
-      "https://picsum.photos/seed/proj7-g4/800/600",
-    ],
-  },
 ];
 
 export default function Projects() {
