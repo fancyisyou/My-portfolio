@@ -92,10 +92,7 @@ const translations = {
       "Designed and built a custom learning management system with analytics dashboard, course management, and student progress tracking.",
     proj7Title: "Press Campaign \u2014 Innovate Summit",
     proj7Desc:
-      "Strategic media relations and communications for a regional innovation summit, securing coverage across 20+ publications.",
-    proj8Title: "City Guide \u2014 Riyadh",
-    proj8Desc:
-      "Comprehensive digital guide to Riyadh\u2019s cultural landmarks, dining scenes, and hidden gems through detailed reviews and photography.",
+      "Strategic media relations and press kit development for corporate announcements and product launches.",
     contactLabel: "Contact",
     contactTitle: "Let's work together",
     contactDesc:
@@ -216,9 +213,6 @@ const translations = {
     proj7Title: "\u062D\u0645\u0644\u0629 \u0639\u0644\u0627\u0642\u0627\u062A \u0639\u0627\u0645\u0629 \u2014 \u0642\u0645\u0629 \u0627\u0644\u0627\u0628\u062A\u0643\u0627\u0631",
     proj7Desc:
       "\u0639\u0644\u0627\u0642\u0627\u062A \u0625\u0639\u0644\u0627\u0645\u064A\u0629 \u0627\u0633\u062A\u0631\u0627\u062A\u064A\u062C\u064A\u0629 \u0648\u0627\u062A\u0635\u0627\u0644\u0627\u062A \u0644\u0642\u0645\u0629 \u0625\u0642\u0644\u064A\u0645\u064A\u0629 \u0644\u0644\u0627\u0628\u062A\u0643\u0627\u0631\u060C \u0628\u062A\u063A\u0637\u064A\u0629 \u0641\u064A \u0623\u0643\u062B\u0631 \u0645\u0646 20 \u0645\u0646\u0635\u0629.",
-    proj8Title: "\u062F\u0644\u064A\u0644 \u0645\u062F\u064A\u0646\u0629 \u2014 \u0627\u0644\u0631\u064A\u0627\u0636",
-    proj8Desc:
-      "\u062F\u0644\u064A\u0644 \u0631\u0642\u0645\u064A \u0634\u0627\u0645\u0644 \u0644\u0645\u0639\u0627\u0644\u0645 \u0627\u0644\u0631\u064A\u0627\u0636 \u0627\u0644\u062B\u0642\u0627\u0641\u064A\u0629 \u0648\u0645\u0634\u0627\u0647\u062F \u0627\u0644\u0637\u0639\u0645 \u0648\u0627\u0644\u062C\u0648\u0627\u0647\u0631 \u0627\u0644\u0645\u062E\u0641\u064A\u0629 \u0645\u0646 \u062E\u0644\u0627\u0644 \u062A\u0642\u064A\u064A\u0645\u0627\u062A \u0648\u0635\u0648\u0631 \u0645\u0641\u0635\u0644\u0629.",
     contactLabel: "\u0627\u062A\u0635\u0644",
     contactTitle: "\u062f\u0639\u0646\u0627 \u0646\u0639\u0645\u0644 \u0645\u0639\u0627\u064b",
     contactDesc:
