@@ -95,18 +95,18 @@ export default function Nav() {
                 animate={{ x: lang === "ar" ? "100%" : "0%" }}
                 transition={{ type: "spring", stiffness: 300, damping: 25 }}
               />
-              <button
-                onClick={() => setLang("en")}
-                className="relative z-10 px-2.5 py-1 text-xs font-medium text-white"
-              >
-                EN
-              </button>
-              <button
-                onClick={() => setLang("ar")}
-                className="relative z-10 px-2.5 py-1 text-xs font-medium text-white"
-              >
-                AR
-              </button>
+                <button
+                  onClick={() => setLang("en")}
+                  className="relative z-10 px-2.5 py-[5.5px] text-xs font-medium text-white"
+                >
+                  EN
+                </button>
+                <button
+                  onClick={() => setLang("ar")}
+                  className="relative z-10 px-2.5 py-[5.5px] text-xs font-medium text-white"
+                >
+                  AR
+                </button>
             </div>
 
             <button
