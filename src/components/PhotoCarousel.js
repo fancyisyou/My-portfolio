@@ -199,14 +199,14 @@ export default function PhotoCarousel({ photos: photosProp, onClose, onBack, cat
 
       <button
         onClick={lang === "ar" ? handleNext : handlePrev}
-        className="absolute start-6 top-1/2 z-30 flex h-14 w-14 -translate-y-1/2 items-center justify-center rounded-full bg-stone-900/70 text-2xl text-white/80 transition-all duration-300 hover:bg-[#C7AC60] hover:text-white hover:shadow-[0_0_25px_rgba(199,172,96,0.3)]"
+        className="absolute start-6 top-1/2 z-30 hidden h-14 w-14 -translate-y-1/2 items-center justify-center rounded-full bg-stone-900/70 text-2xl text-white/80 transition-all duration-300 hover:bg-[#C7AC60] hover:text-white hover:shadow-[0_0_25px_rgba(199,172,96,0.3)] md:flex"
       >
         {lang === "ar" ? "\u203A" : "\u2039"}
       </button>
 
       <button
         onClick={lang === "ar" ? handlePrev : handleNext}
-        className="absolute end-6 top-1/2 z-30 flex h-14 w-14 -translate-y-1/2 items-center justify-center rounded-full bg-stone-900/70 text-2xl text-white/80 transition-all duration-300 hover:bg-[#C7AC60] hover:text-white hover:shadow-[0_0_25px_rgba(199,172,96,0.3)]"
+        className="absolute end-6 top-1/2 z-30 hidden h-14 w-14 -translate-y-1/2 items-center justify-center rounded-full bg-stone-900/70 text-2xl text-white/80 transition-all duration-300 hover:bg-[#C7AC60] hover:text-white hover:shadow-[0_0_25px_rgba(199,172,96,0.3)] md:flex"
       >
         {lang === "ar" ? "\u2039" : "\u203A"}
       </button>
@@ -258,6 +258,21 @@ export default function PhotoCarousel({ photos: photosProp, onClose, onBack, cat
             );
           })}
         </motion.div>
+      </div>
+
+      <div className="absolute bottom-8 left-0 right-0 z-30 flex items-center justify-center gap-6 md:hidden">
+        <button
+          onClick={lang === "ar" ? handleNext : handlePrev}
+          className="flex h-12 w-12 items-center justify-center rounded-full bg-stone-900/70 text-xl text-white/80 transition-all duration-300 hover:bg-[#C7AC60] hover:text-white hover:shadow-[0_0_25px_rgba(199,172,96,0.3)]"
+        >
+          {lang === "ar" ? "\u203A" : "\u2039"}
+        </button>
+        <button
+          onClick={lang === "ar" ? handlePrev : handleNext}
+          className="flex h-12 w-12 items-center justify-center rounded-full bg-stone-900/70 text-xl text-white/80 transition-all duration-300 hover:bg-[#C7AC60] hover:text-white hover:shadow-[0_0_25px_rgba(199,172,96,0.3)]"
+        >
+          {lang === "ar" ? "\u2039" : "\u203A"}
+        </button>
       </div>
 
     </motion.div>
