@@ -37,18 +37,7 @@ const projects = [
       "https://picsum.photos/seed/proj4-g4/800/600",
     ],
   },
-  {
-    titleKey: "proj5Title",
-    descKey: "proj5Desc",
-    img: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=375&fit=crop",
-    tags: ["tagUIUX", "tagResponsive"],
-    images: [
-      "https://picsum.photos/seed/proj5-g1/800/600",
-      "https://picsum.photos/seed/proj5-g2/800/600",
-      "https://picsum.photos/seed/proj5-g3/800/600",
-      "https://picsum.photos/seed/proj5-g4/800/600",
-    ],
-  },
+
 ];
 
 export default function Projects() {
